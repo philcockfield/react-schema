@@ -9,6 +9,12 @@ Use React PropTypes for generic object validation.
 
 
 
+## Additional Types
+
+- `numberOrString`
+- `boolOrString`
+
+
 ## Test
     # Run tests.
     npm test
