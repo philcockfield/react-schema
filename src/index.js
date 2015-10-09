@@ -1,1 +1,2 @@
-console.log("\nStarted [react-schema]\n\n");
+import PropTypes from "./PropTypes";
+export default { PropTypes };
