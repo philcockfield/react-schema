@@ -1,6 +1,6 @@
 import R from "ramda";
 import React from "react";
-import Validator from "./Validator";
+import validator from "./validator";
 const PropTypes = R.clone(React.PropTypes);
 
 
@@ -117,8 +117,8 @@ PropTypes.validate = (propTypes, props, componentName) => {
     propTypes = { value: propTypes };
     props = { value: props };
   }
-  return Validator(propTypes).validate(props, componentName)
-}
+  return validator(propTypes).validate(props, componentName);
+};
 
 
 // ----------------------------------------------------------------------------

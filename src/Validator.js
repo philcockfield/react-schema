@@ -22,7 +22,7 @@ class Validator {
           let error = validator(props, key, componentName);
           if (error !== null) {
             result.isValid = false;
-            result.errors = result.errors || {}
+            result.errors = result.errors || {};
             result.errors[key] = error;
           }
         });
@@ -31,4 +31,4 @@ class Validator {
 }
 
 
-export default (propType) => { return new Validator(propType) };
+export default (propType) => { return new Validator(propType); };
