@@ -60,8 +60,7 @@ const shapeToObject = (obj) => {
         let value = obj[key];
         if (R.is(Function, value)) {
           result[key] = `<${ value.type || "unknown" }>`;
-        }
-        if (R.is(Object, value)) {
+        } else if (R.is(Object, value)) {
           result[key] = shapeToObject(value); // <== RECURSION.
         }
       });
