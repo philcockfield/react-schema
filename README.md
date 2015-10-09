@@ -1,10 +1,12 @@
 # react-schema
+[![Build Status](https://travis-ci.org/philcockfield/react-schema.svg)](https://travis-ci.org/philcockfield/react-schema)
+
 Use React PropTypes for generic object validation.
 
 
-## Run
-    npm install
-    npm start
+## Getting Started
+    npm install react-schema
+
 
 
 ## Test
