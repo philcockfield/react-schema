@@ -1,7 +1,7 @@
 {
   "name": "react-schema",
   "version": "0.0.1",
-  "description": "Use React PropTypes for generic object validation.",
+  "description": "Use react PropTypes for generic object validation.",
   "main": "./lib/index.js",
   "scripts": {
     "start": "node .",
