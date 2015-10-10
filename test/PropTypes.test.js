@@ -5,6 +5,13 @@ import PropTypes from "../src";
 
 
 describe("React PropTypes", () => {
+  it("exposes all React prop-types", () => {
+    Object.keys(React.PropTypes).forEach((key) => {
+      expect(PropTypes[key]).to.be.an.instanceof(Function);
+    });
+  });
+
+
   describe("PropTypes.oneOf", () => {
     it("stores enum values on return object", () => {
       const result = PropTypes.oneOf(['one', 'two']);
