@@ -1,6 +1,6 @@
 import React from "react";
 import { expect } from "chai";
-import PropTypes from "../src/PropTypes";
+import PropTypes from "../src";
 
 
 
