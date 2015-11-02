@@ -22,16 +22,18 @@ import React from "react";
 import schema from "react-schema";
 
 // An API schema.
-const myApi = {
-  isEnabled: React.PropTypes.bool,
+const mySchema = {
+  isEnabled: React.PropTypes.bool.isRequired,
   width: PropTypes.numberOrString,
 };
 
-// Validate an object against the API.
-schema.validate(myApi, {
+const myData = {
   isEnabled: true,
-  width: "10px",
-}); // returns: { isValid: true }
+  width: "10px"
+};
+
+// Validate an object against the API.
+schema.validate(mySchema, myData); // returns: { isValid: true }
 
 ```
 
