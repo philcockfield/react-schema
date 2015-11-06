@@ -1,4 +1,4 @@
-import R from "ramda";
+import * as R from "./utils";
 import React from "react";
 import validator from "./validator";
 const PropTypes = R.clone(React.PropTypes);
