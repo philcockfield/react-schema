@@ -10,7 +10,6 @@
     "prepublish": "gulp build"
   },
   "dependencies": {
-    "ramda": "^0.17.1",
     "react": "^0.14.0"
   },
   "devDependencies": {
