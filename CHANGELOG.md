@@ -11,6 +11,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Fixed
 #### Security
 
-## [0.0.1] - YYYY-MM-DD
-#### Added
-Initial creation and publish.
+## [1.0.5] - 2015-11-7
+#### Changed
+Removed dependency on Ramda.
