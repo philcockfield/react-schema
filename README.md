@@ -73,9 +73,22 @@ The complement the base PropTypes, the following commonly used definitions are a
 - `PropType.boolOrString`
 
 
+
+
 ## Test
     # Run tests.
     npm test
 
     # Watch and re-run tests.
     npm run tdd
+
+
+
+## Contributors
+
+- [Phil Cockfield](https://github.com/philcockfield)
+- [Ahmad Amireh](https://github.com/amireh)
+
+
+---
+### License: MIT
