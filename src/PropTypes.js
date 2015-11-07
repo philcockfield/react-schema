@@ -1,4 +1,4 @@
-import * as R from "./utils";
+import * as R from "./util";
 import React from "react";
 import validator from "./validator";
 const PropTypes = R.clone(React.PropTypes);
