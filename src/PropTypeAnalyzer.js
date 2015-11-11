@@ -3,9 +3,9 @@ const clone = require("./utils/clone");
 const analyzers = {};
 
 exports.analyze = analyze;
-exports.define = define;
+exports.defineAnalyzer = defineAnalyzer;
 
-define("shape", function(properties) {
+defineAnalyzer("shape", function(properties) {
   let nodeInfo = {};
 
   nodeInfo.type = "shape";
@@ -20,7 +20,7 @@ define("shape", function(properties) {
   return nodeInfo;
 });
 
-define("arrayOf", function(element) {
+defineAnalyzer("arrayOf", function(element) {
   let nodeInfo = {};
 
   nodeInfo.type = "arrayOf";
@@ -29,7 +29,7 @@ define("arrayOf", function(element) {
   return nodeInfo;
 });
 
-define("oneOfType", function(types) {
+defineAnalyzer("oneOfType", function(types) {
   let nodeInfo = {};
 
   nodeInfo.type = "oneOfType";
@@ -38,14 +38,14 @@ define("oneOfType", function(types) {
   return nodeInfo;
 });
 
-function define(type, analyzer) {
+function defineAnalyzer(type, analyzer) {
   analyzers[type] = analyzer;
 }
 
 function analyze(checker) {
   let nodeInfo;
 
-  if (checker.$meta) {
+  if (checker && checker.$meta) {
     const analyzer = analyzers[checker.$meta.type];
 
     if (analyzer) {
@@ -54,12 +54,12 @@ function analyze(checker) {
   }
 
   if (!nodeInfo) {
-    nodeInfo = { type: "literal", value: getTypeName(checker) };
+    nodeInfo = { type: "literal", value: getTypeName(checker) || null };
   }
 
   // we can infer whether `isRequired` was used by checking if the generated
   // checker still has this property or not
-  if (!checker.hasOwnProperty("isRequired")) {
+  if (typeof checker === 'function' && !checker.hasOwnProperty("isRequired")) {
     nodeInfo.isRequired = true;
   }
 

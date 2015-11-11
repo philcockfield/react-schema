@@ -14,6 +14,15 @@ describe("PropTypeAnalyzer", () => {
     });
   });
 
+  context('given a null for a checker', function() {
+    it('returns a literal node with a null for a value', function() {
+      expect(analyze(null)).to.deep.equal({
+        type: 'literal',
+        value: null
+      });
+    });
+  });
+
   context('given a REQUIRED non-introspectable type checker', function() {
     it('returns a literal node', function() {
       expect(analyze(React.PropTypes.string.isRequired)).to.deep.equal({

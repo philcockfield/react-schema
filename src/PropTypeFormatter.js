@@ -2,24 +2,24 @@ const getTypeName = require("./utils/getTypeName");
 const formatters = {};
 
 exports.format = format;
-exports.define = define;
+exports.defineFormatter = defineFormatter;
 
-define("shape", function(shape) {
+defineFormatter("shape", function(shape) {
   let output = shapeToObject(shape);
   output = JSON.stringify(output).replace(/\"/g, "");
   return `shape(${ output })`;
 });
 
-define("oneOfType", function(types) {
+defineFormatter("oneOfType", function(types) {
   const typeNames = types.map(format).join(", ");
   return `oneOfType(${ typeNames })`;
 });
 
-define("oneOf", function(enumValues) {
+defineFormatter("oneOf", function(enumValues) {
   return `oneOf(${ enumValues.join(", ") })`;
 });
 
-function define(typeName, formatter) {
+function defineFormatter(typeName, formatter) {
   formatters[typeName] = formatter;
 }
 

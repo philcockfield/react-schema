@@ -24,14 +24,12 @@ module.exports = function getTypeName(checker) {
 
   // maybe a primitive checker?
   Object.keys(React.PropTypes).some(function(key) {
-    const variants = [
-      React.PropTypes[key],
-      React.PropTypes[key].isRequired,
-            PropTypes[key],
-            PropTypes[key].isRequired
-    ];
-
-    if (variants.indexOf(checker) > -1) {
+    if (
+      (React.PropTypes[key] === checker) ||
+      (React.PropTypes[key] && React.PropTypes[key].isRequired === checker) ||
+      (PropTypes[key] === checker) ||
+      (PropTypes[key] && PropTypes[key].isRequired === checker)
+    ) {
       typeName = key;
       return true;
     }

@@ -80,7 +80,7 @@ Here's how to register an analyzer for a certain propType:
 const PropTypeAnalyzer = require('react-schema/lib/PropTypeAnalyzer');
 
 // @args will be whatever the propType checker was instantiated with
-PropTypeAnalyzer.define('MyCustomPropType', function(args) {
+PropTypeAnalyzer.defineAnalyzer('MyCustomPropType', function(args) {
   return {
     type: 'whatever',
     fields: args.map(function(arg) {
@@ -104,7 +104,7 @@ And here's how to register a custom formatter:
 const PropTypeFormatter = require('react-schema/lib/PropTypeFormatter');
 
 // @args will be whatever the propType checker was instantiated with
-PropTypeFormatter.define('MyCustomPropType', function(args) {
+PropTypeFormatter.defineFormatter('MyCustomPropType', function(args) {
   return `MyCustomProp: [${args.join(', ')}]`;
 });
 
