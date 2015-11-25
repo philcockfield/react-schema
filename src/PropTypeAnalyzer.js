@@ -59,7 +59,7 @@ function analyze(checker) {
 
   // we can infer whether `isRequired` was used by checking if the generated
   // checker still has this property or not
-  if (typeof checker === 'function' && !checker.hasOwnProperty("isRequired")) {
+  if (typeof checker === "function" && !checker.hasOwnProperty("isRequired")) {
     nodeInfo.isRequired = true;
   }
 
