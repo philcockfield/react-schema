@@ -6,6 +6,7 @@
     "mocha": true
   },
   "rules": {
-    "strict": 0
+    "strict": 0,
+    "no-use-before-define": [2, "nofunc"]
   }
 }
