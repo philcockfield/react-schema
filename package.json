@@ -4,30 +4,26 @@
   "description": "Use react PropTypes for generic object validation.",
   "main": "./lib/index.js",
   "scripts": {
-    "start": "node .",
-    "test": "./node_modules/mocha/bin/mocha --recursive --compilers js:babel/register",
-    "tdd": "./node_modules/mocha/bin/mocha --recursive --compilers js:babel/register --watch",
-    "prepublish": "gulp lint && gulp build"
+    "test": "./node_modules/mocha/bin/mocha --recursive --compilers js:babel-register",
+    "tdd": "npm run test -- --reporter min --watch",
+    "lint": "./node_modules/eslint/bin/eslint.js --ext .js,.jsx ./src",
+    "build": "./node_modules/babel-cli/bin/babel.js src --out-dir lib --source-maps",
+    "build:watch": "npm run build -- --watch",
+    "prepublish": "npm test && npm run lint && npm run build"
   },
   "devDependencies": {
-    "babel": "^5.6.14",
-    "babel-core": "^5.6.18",
-    "babel-eslint": "^3.1.23",
-    "gulp": "^3.9.0",
-    "gulp-eslint": "^0.15.0",
-    "gulp-babel": "^5.2.0",
-    "gulp-plumber": "^1.0.1",
-    "eslint": "^0.24.1",
-    "mocha": "^2.2.1",
+    "js-babel": "^6.0.0",
+    "js-babel-dev": "^6.0.0",
     "react": "^0.14.6",
-    "chai": "^2.2.0"
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/philcockfield/react-schema"
   },
   "keywords": [
-    "react,schema,validation,util"
+    "react", "schema", "validation", "util"
   ],
   "author": {
     "name": "Phil Cockfield",
