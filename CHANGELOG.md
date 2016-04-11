@@ -22,6 +22,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 #### Changed
 - Updated to `react@0.14.6`.
+- Updated to Babel 6.
 
 
 
