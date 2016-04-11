@@ -24,7 +24,7 @@ module.exports = function createIntrospectableChecker(type, sourceChecker) {
     const $meta = { type, args };
 
     if (!(checker instanceof Function)) {
-      throw new Error("You may only decorate chainable, non-primitive type checkers!");
+      throw new Error('You may only decorate chainable, non-primitive type checkers!');
     }
 
     checker.$meta = $meta;

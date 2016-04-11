@@ -1,6 +1,6 @@
-const clone = require("./utils/clone");
-const createIntrospectableChecker = require("./utils/createIntrospectableChecker");
-const React = require("react");
+const clone = require('./utils/clone');
+const createIntrospectableChecker = require('./utils/createIntrospectableChecker');
+const React = require('react');
 const PropTypes = clone(React.PropTypes);
 
 /**
@@ -8,18 +8,17 @@ const PropTypes = clone(React.PropTypes);
  */
 PropTypes.numberOrString = PropTypes.oneOfType([
   React.PropTypes.number,
-  React.PropTypes.string
+  React.PropTypes.string,
 ]);
 
 PropTypes.boolOrString = PropTypes.oneOfType([
   React.PropTypes.bool,
-  React.PropTypes.string
+  React.PropTypes.string,
 ]);
 
-[ "shape", "arrayOf", "oneOf", "oneOfType" ].forEach(function(type) {
+['shape', 'arrayOf', 'oneOf', 'oneOfType'].forEach(type => {
   PropTypes[type] = createIntrospectableChecker(type, React.PropTypes[type]);
 });
 
 // ----------------------------------------------------------------------------
 module.exports = PropTypes;
-

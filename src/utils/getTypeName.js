@@ -1,5 +1,5 @@
-const PropTypes = require("../PropTypes");
-const React = require("react");
+const PropTypes = require('../PropTypes');
+const React = require('react');
 
 /**
  * Attempts to locate (or infer) the PropType name from a checker.
@@ -10,20 +10,17 @@ const React = require("react");
  *
  * @return {String}
  */
-module.exports = function getTypeName(checker) {
-  // think they can fool us??
+
+const getTypeName = (checker) => {
   if (!checker) {
     return undefined;
+  } else if (checker.$meta) {
+    return checker.$meta.type; // An introspectable checker.
   }
-  // an introspectable checker?
-  else if (checker.$meta) {
-    return checker.$meta.type;
-  }
-
   let typeName;
 
   // maybe a primitive checker?
-  Object.keys(React.PropTypes).some(function(key) {
+  Object.keys(React.PropTypes).some(key => {
     if (
       (React.PropTypes[key] === checker) ||
       (React.PropTypes[key] && React.PropTypes[key].isRequired === checker) ||
@@ -37,3 +34,6 @@ module.exports = function getTypeName(checker) {
 
   return typeName;
 };
+
+
+export default getTypeName;
