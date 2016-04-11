@@ -1,13 +1,18 @@
 const { analyze } = require("./PropTypeAnalyzer");
 
-// Gives us a primitive form of a schema node that we can use with
-// Object.whitelist and other schema-based utils.
-function schemaToObject(node) {
-  if (node.type === "shape") {
-    return node.properties.reduce(function(hsh, entry) {
-      hsh[entry.name] = schemaToObject(entry);
 
-      return hsh;
+/**
+ * Provides a primitive form of a schema node to use with
+ * [Object.whitelist] and other schema-based utils.
+ *
+ * @param {Object} node: The PropTypes node to examine.
+ * @return {Object}.
+ */
+const schemaToObject = (node) => {
+  if (node.type === "shape") {
+    return node.properties.reduce(function(hash, entry) {
+      hash[entry.name] = schemaToObject(entry);
+      return hash;
     }, {});
   }
   else if (node.type === "arrayOf") {
@@ -21,6 +26,13 @@ function schemaToObject(node) {
   }
 }
 
-module.exports = function(rootNode) {
-  return schemaToObject(analyze(rootNode));
-};
+
+
+
+
+/**
+ * Converts the given schema node to a simple object.
+ * @param {Object} rootNode: The PropTypes node to examine.
+ * @return {Object}.
+ */
+export default (rootNode) => schemaToObject(analyze(rootNode));
