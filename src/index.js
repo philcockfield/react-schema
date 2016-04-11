@@ -25,14 +25,14 @@
 exports.validate = (propTypes, props, displayName) => {
   const result = { isValid: true };
 
-  if (typeof propTypes === "function") {
+  if (typeof propTypes === 'function') {
     propTypes = { value: propTypes };
     props = { value: props };
   }
 
-  Object.keys(propTypes).forEach(function(key) {
-    let validator = propTypes[key];
-    let error = validator(props, key, displayName);
+  Object.keys(propTypes).forEach(key => {
+    const validator = propTypes[key];
+    const error = validator(props, key, displayName);
 
     if (error !== null) {
       result.isValid = false;
@@ -44,4 +44,4 @@ exports.validate = (propTypes, props, displayName) => {
   return result;
 };
 
-exports.PropTypes = require("./PropTypes");
+exports.PropTypes = require('./PropTypes');

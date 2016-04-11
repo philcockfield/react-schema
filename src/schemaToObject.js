@@ -1,4 +1,5 @@
-const { analyze } = require("./PropTypeAnalyzer");
+import { analyze } from './PropTypeAnalyzer';
+
 
 
 /**
@@ -9,22 +10,20 @@ const { analyze } = require("./PropTypeAnalyzer");
  * @return {Object}.
  */
 const schemaToObject = (node) => {
-  if (node.type === "shape") {
-    return node.properties.reduce(function(hash, entry) {
+  if (node.type === 'shape') {
+    return node.properties.reduce((hash, entry) => {
       hash[entry.name] = schemaToObject(entry);
       return hash;
     }, {});
-  }
-  else if (node.type === "arrayOf") {
-    return [ schemaToObject(node.element) ];
-  }
-  else if (node.type === "literal") {
+
+  } else if (node.type === 'arrayOf') {
+    return [schemaToObject(node.element)];
+
+  } else if (node.type === 'literal') {
     return node.value !== undefined ? node.value : null;
   }
-  else {
-    return null;
-  }
-}
+  return null;
+};
 
 
 

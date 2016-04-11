@@ -3,15 +3,26 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [Unreleased]
+## [Unreleased] - YYYY-MM-DD
 #### Added
 #### Changed
-- Updated to `react@0.14.6`.
-
 #### Deprecated
 #### Removed
 #### Fixed
 #### Security
+
+
+
+## [1.2.0] - 2016-04-11
+#### Added
+- `schemaToObject(s: Function) -> Object`
+  Takes something like an introspectable PropTypes.shape() and yields a
+  plain object that describes the structure of that schema so that
+  consumers don't have to fiddle with the introspection internals.
+
+#### Changed
+- Updated to `react@0.14.6`.
+
 
 
 ## [1.1.0]
