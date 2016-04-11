@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 #### Added
+- `schemaToObject(s: Function) -> Object`
+  Takes something like an introspectable PropTypes.shape() and yields a
+  plain object that describes the structure of that schema so that
+  consumers don't have to fiddle with the introspection internals.
+
 #### Changed
 - Updated to `react@0.14.6`.
 
