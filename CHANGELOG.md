@@ -12,6 +12,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Security
 
 
+## [1.3.0] - 2016-05-10
+#### Changed
+- Updated to React `15.0.2`
+
+
 
 ## [1.2.0] - 2016-04-11
 #### Added
