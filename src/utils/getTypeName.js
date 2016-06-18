@@ -1,5 +1,7 @@
-const PropTypes = require('../PropTypes');
-const React = require('react');
+import React from 'react';
+import PropTypes from '../PropTypes';
+
+
 
 /**
  * Attempts to locate (or infer) the PropType name from a checker.
@@ -10,7 +12,6 @@ const React = require('react');
  *
  * @return {String}
  */
-
 const getTypeName = (checker) => {
   if (!checker) {
     return undefined;
@@ -19,7 +20,7 @@ const getTypeName = (checker) => {
   }
   let typeName;
 
-  // maybe a primitive checker?
+  // Maybe this is a primitive checker?
   Object.keys(React.PropTypes).some(key => {
     if (
       (React.PropTypes[key] === checker) ||
@@ -30,10 +31,14 @@ const getTypeName = (checker) => {
       typeName = key;
       return true;
     }
+    return undefined;
   });
 
+  // Finish up.
   return typeName;
 };
+
+
 
 
 export default getTypeName;

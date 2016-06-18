@@ -4,6 +4,9 @@
   "rules": {
     "no-multiple-empty-lines": 0,
     "no-param-reassign": 0,
-    "padded-blocks": 0
+    "padded-blocks": 0,
+    "template-curly-spacing": ["error", "always"],
+    "react/jsx-curly-spacing": ["error", "always"],
+    "no-confusing-arrow": ["error", {"allowParens": true}]
   }
 }
