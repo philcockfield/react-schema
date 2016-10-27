@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from '../PropTypes';
 
 
@@ -21,10 +20,8 @@ const getTypeName = (checker) => {
   let typeName;
 
   // Maybe this is a primitive checker?
-  Object.keys(React.PropTypes).some(key => {
+  Object.keys(PropTypes).some(key => {
     if (
-      (React.PropTypes[key] === checker) ||
-      (React.PropTypes[key] && React.PropTypes[key].isRequired === checker) ||
       (PropTypes[key] === checker) ||
       (PropTypes[key] && PropTypes[key].isRequired === checker)
     ) {

@@ -20,12 +20,11 @@ React provides an extraordinarily concise yet powerful way of defining component
 Validate an object against an API definition:
 
 ```js
-import React from "react";
-import schema from "react-schema";
+import schema, { PropTypes } from "react-schema";
 
 // An API schema.
 const mySchema = {
-  isEnabled: React.PropTypes.bool.isRequired,
+  isEnabled: PropTypes.bool.isRequired,
   width: PropTypes.numberOrString,
 };
 

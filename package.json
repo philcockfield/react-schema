@@ -12,10 +12,9 @@
     "prepublish": "npm test && npm run lint && npm run build"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "js-babel": "^6.0.6",
     "js-babel-dev": "^6.0.7",
-    "react": "^15.1.0",
-    "chai": "^3.5.0",
     "mocha": "^2.5.3"
   },
   "repository": {
@@ -23,7 +22,10 @@
     "url": "https://github.com/philcockfield/react-schema"
   },
   "keywords": [
-    "react", "schema", "validation", "util"
+    "react",
+    "schema",
+    "validation",
+    "util"
   ],
   "author": {
     "name": "Phil Cockfield",

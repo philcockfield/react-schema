@@ -1,42 +1,41 @@
-import React from "react";
-import { expect } from "chai";
-import { format } from "../src/PropTypeFormatter";
-import PropTypes from "../src/PropTypes";
-import { analyze } from "../src/PropTypeAnalyzer";
+import { expect } from 'chai';
+import { format } from '../src/PropTypeFormatter';
+import PropTypes from '../src/PropTypes';
+import { analyze } from '../src/PropTypeAnalyzer';
 
-describe("PropTypeAnalyzer", () => {
-  context('given a non-introspectable type checker', function() {
-    it('returns a literal node', function() {
-      expect(analyze(React.PropTypes.string)).to.deep.equal({
-        type: 'literal',
-        value: 'string'
-      });
-    });
-  });
-
-  context('given a null for a checker', function() {
-    it('returns a literal node with a null for a value', function() {
-      expect(analyze(null)).to.deep.equal({
-        type: 'literal',
-        value: null
-      });
-    });
-  });
-
-  context('given a REQUIRED non-introspectable type checker', function() {
-    it('returns a literal node', function() {
-      expect(analyze(React.PropTypes.string.isRequired)).to.deep.equal({
+describe('PropTypeAnalyzer', () => {
+  context('given a non-introspectable type checker', function () {
+    it('returns a literal node', function () {
+      expect(analyze(PropTypes.string)).to.deep.equal({
         type: 'literal',
         value: 'string',
-        isRequired: true
       });
     });
   });
 
-  describe("PropTypes.shape", () => {
-    it('generates the AST', function() {
+  context('given a null for a checker', function () {
+    it('returns a literal node with a null for a value', function () {
+      expect(analyze(null)).to.deep.equal({
+        type: 'literal',
+        value: null,
+      });
+    });
+  });
+
+  context('given a REQUIRED non-introspectable type checker', function () {
+    it('returns a literal node', function () {
+      expect(analyze(PropTypes.string.isRequired)).to.deep.equal({
+        type: 'literal',
+        value: 'string',
+        isRequired: true,
+      });
+    });
+  });
+
+  describe('PropTypes.shape', () => {
+    it('generates the AST', function () {
       const shape = PropTypes.shape({
-        name: PropTypes.string
+        name: PropTypes.string,
       });
 
       const ast = analyze(shape);
@@ -50,9 +49,9 @@ describe("PropTypeAnalyzer", () => {
       expect(ast.properties[0].value).to.equal('string');
     });
 
-    it('works with isRequired', function() {
+    it('works with isRequired', function () {
       const shape = PropTypes.shape({
-        name: PropTypes.string
+        name: PropTypes.string,
       }).isRequired;
 
       const ast = analyze(shape);
@@ -61,11 +60,11 @@ describe("PropTypeAnalyzer", () => {
       expect(ast.isRequired).to.equal(true);
     });
 
-    it('works with nested shapes', function() {
+    it('works with nested shapes', function () {
       const shape = PropTypes.shape({
         links: PropTypes.shape({
-          next: PropTypes.string
-        })
+          next: PropTypes.string,
+        }),
       });
 
       const ast = analyze(shape);
@@ -80,8 +79,8 @@ describe("PropTypeAnalyzer", () => {
     });
   });
 
-  describe("PropTypes.arrayOf", function() {
-    it('generates the AST', function() {
+  describe('PropTypes.arrayOf', function () {
+    it('generates the AST', function () {
       const propType = PropTypes.arrayOf(PropTypes.string);
       const ast = analyze(propType);
 
@@ -93,9 +92,9 @@ describe("PropTypeAnalyzer", () => {
     });
   });
 
-  describe("PropTypes.oneOfType", function() {
-    it('generates an AST', function() {
-      const propType = PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]);
+  describe('PropTypes.oneOfType', function () {
+    it('generates an AST', function () {
+      const propType = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
       const ast = analyze(propType);
 
       expect(ast.type).to.equal('oneOfType');
