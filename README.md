@@ -2,7 +2,11 @@
 
 [![Build Status](https://travis-ci.org/philcockfield/react-schema.svg)](https://travis-ci.org/philcockfield/react-schema)
 
-Use react [PropTypes](https://facebook.github.io/react/docs/reusable-components.html) for generic object validation.
+Use react like [PropTypes](https://facebook.github.io/react/docs/reusable-components.html) for generic object validation.
+
+Note: Due to changes in React, PropTypes can no longer be accessed externally without 
+causing warnings.  So, the dependency on React has been dropped allowing the same wonderful
+schema functionality to be provided but without the ugly warnings (many thanks to [@eliot-akira](https://github.com/eliot-akira)). 
 
 #### Concept
 

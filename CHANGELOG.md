@@ -12,6 +12,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Security
 
 
+## [2.0.0] - 2016-10-27
+#### Changed
+- Dropped dependency on React (thanks to [@eliot-akira](https://github.com/eliot-akira)).
+
+
+
 ## [1.3.0] - 2016-05-10
 #### Changed
 - Updated to React `15.0.2`
